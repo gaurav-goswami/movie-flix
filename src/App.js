@@ -1,42 +1,50 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import Home from './pages/Home';
+import Error from './pages/Error';
+import Navbar from './navbar/Navbar';
+import Footer from './footer/Footer';
+import PopularMovies from './pages/popular/PopularMovies';
+import PopularTvShows from './pages/popular/PopularTvShows';
+import TopRatedMovies from './pages/top rated/TopRatedMovies';
+import TopRatedTvShows from './pages/top rated/TopRatedTvShows';
+import WatchList from './pages/WatchList';
+import UpcomingMovies from './pages/upcoming/UpcomingMovies';
+import UpcomingTvShows from './pages/upcoming/UpcomingTvShows';
+import SearchResult from './pages/SearchResult';
+import SinglePage from './components/SinglePage';
 
-function App() {
+const App = () => {
+
+  const client = new QueryClient();
+
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
-    </ChakraProvider>
-  );
+    <>
+      <QueryClientProvider client={client}>
+
+          <BrowserRouter>
+            <Navbar />
+            <Routes>
+              <Route path='/' element={<Home />}/>
+              <Route path='movies/upcoming' element={<UpcomingMovies />}/>
+              <Route path='tvshows/upcoming' element={<UpcomingTvShows />}/>
+              <Route path='movies/popular' element={<PopularMovies />}/>
+              <Route path='tvshows/popular' element={<PopularTvShows />}/>
+              <Route path='movies/toprated' element = {<TopRatedMovies />}/>
+              <Route path='tvshows/toprated' element = {<TopRatedTvShows />}/>
+              <Route path='search/:name' element={<SearchResult />}/>
+              <Route path= '/:title/view' element={<SinglePage />} />
+              <Route path='watchlist' element={<WatchList />}/>
+
+              <Route path='*' element={<Error />}/>
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+
+      </QueryClientProvider>
+    </>
+  )
 }
 
-export default App;
+export default App

@@ -1,0 +1,65 @@
+.poster{
+    width: 100vw;
+    height: 80vh;
+    position: relative;
+}
+
+.poster img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    filter: brightness(.5);
+}
+
+
+.details{
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30% , -60%);
+    /* background-color: rebeccapurple; */
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1.3rem;
+    
+}
+
+.name{
+    font-weight: 600;
+    font-size: 2.8rem;
+    border-radius: 5rem;
+    padding: .5rem 1rem;
+}
+
+.tagline{
+    font-style: italic;
+    font-size: 2rem;
+    padding: 0.7rem;
+}
+
+.overview{
+    font-size: 1.8rem;
+    padding: 0.7rem;
+    color: yellow;
+    background-color: black;
+}
+
+.current-card{
+    padding: 1rem;
+    position: absolute;
+    top: 40%;
+    left: 7%;
+    margin: 2rem;
+}
+
+
+@media screen and (max-width: 990px){
+    .poster img{
+        height: auto;
+    }
+}

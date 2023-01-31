@@ -1,0 +1,172 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    z-index: 2 !important;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbar{
+    border-radius: 5rem;
+    color: rgba(255, 255, 0, 0.715);
+    padding: 1rem;
+    font-size: 1.6rem;
+    width: 80%;
+    background-color: #000;
+    border: 1px solid #fff;
+}
+
+.login-btn{
+    background-color: rgb(255, 255, 0);
+    padding: 2rem;
+}
+
+/* show-hide navbar */
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+
+/* hamburger-menu */
+
+.menu-icon{
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.hamburger{
+    padding: 1rem;
+    display: none;
+}
+
+/* breakpoints */
+
+/* 320px — 480px: Mobile devices. */
+/* 481px — 768px: iPads, Tablets. */
+/* 769px — 1024px: Small screens, laptops. */
+/* 1025px — 1200px: Desktops, large screens. */
+/* 1201px and more — Extra large screens, TV. */
+
+
+/* navbar breakpoints */
+
+/* 768px - 980px (logo->size->decrease),  */
+
+
+
+@media screen and (min-width: 768px) and (max-width: 980px) {
+
+    .logo{
+        font-size: 1.8rem !important;
+    }
+
+    .movies-shows-field{
+        width: 45% !important;
+    }
+
+    .search-field{
+        width: 45% !important;
+    }
+}
+
+
+
+/* media queries */
+
+
+@media screen and (max-width: 530px){
+    .hamburger{
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        z-index: 5;
+    }
+
+    .navbar{
+        display: none;
+    }
+
+    .mobile-navbar{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100vh;
+        width: 90%;
+        background-color: rgba(27, 26, 26, 0.701);
+    }
+
+    .logo-wrapper{
+        width: 80%;
+        margin: 2rem;
+    }
+
+    .movies-shows-field , .search-field{
+        width: 80% !important;
+        gap: 3rem;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        margin: 2rem;
+    }
+
+    .searchbar{
+        width: 100%;
+    }
+}
+
+
+
+@media screen and (min-width: 530px) and (max-width:768px){
+    .hamburger{
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        z-index: 5;
+    }
+
+    .navbar{
+        display: none;
+    }
+
+    .mobile-navbar{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100vh;
+        width: 70%;
+        background-color: rgba(27, 26, 26, 0.701);
+    }
+
+    .logo-wrapper{
+        width: 80%;
+        margin: 1rem;
+    }
+
+    .movies-shows-field , .search-field{
+        width: 80% !important;
+        gap: 2.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        margin: 1rem;
+    }
+    .searchbar{
+        width: 100%;
+    }
+}
